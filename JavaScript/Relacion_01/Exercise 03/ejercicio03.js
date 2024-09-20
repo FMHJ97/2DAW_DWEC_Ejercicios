@@ -8,7 +8,7 @@ function mostrarTriangulo(lado1, lado2, lado3) {
         if(lado1 === lado2 && lado1 === lado3) {
             alert("Triángulo Equilátero")
         } else {
-            if(lado1 )
+            
         }
     }
     
