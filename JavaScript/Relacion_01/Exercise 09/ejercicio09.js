@@ -2,6 +2,9 @@
 var azar = Math.round((Math.random() * 99) + 1);
 // Número de intentos.
 var limit = 10;
+// Límites del número azar.
+var li_max = 100;
+var li_min = 1;
 
 function comprobarNum(num) {
     // Comprobamos si el número del usuario está comprendido entre 1 y 100.
@@ -9,9 +12,15 @@ function comprobarNum(num) {
         // Comparar el número ingresado con el número random.
         if (num < azar) {
             alert("El número random es mayor.");
+            // Le indicamos el número posterior.
+            li_min = num + 1;
+            alert(`El número se encuentra entre ${li_min} y ${li_max}`);
             limit--;
         } else if (num > azar) {
             alert("El número random es menor.");
+            // Le indicamos el número anterior.
+            li_max = num - 1;
+            alert(`El número se encuentra entre ${li_min} y ${li_max}`);
             limit--;
         } else {
             alert(`¡Has acertado! El número random es ${azar}`);
