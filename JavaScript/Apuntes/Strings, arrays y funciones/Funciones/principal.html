@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Funciones</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+            Si declaramos una función, ésta automáticamente se declara
+            como global y puede ser invocada en cualquier parte del
+            programa, incluso antes de su declaración.
+        */
+        mostrar();
+
+        function mostrar() {
+            document.write("pepito");
+        }
+
+        // -----------------------------
+        document.write("<br>");
+
+        /*
+            Sin embargo, si declaramos una función como función
+            Expresada y no declarada, sí que debe ser invocada después de
+            su declaración.
+        */
+        function funcionDeclarada() {
+            document.write("miguel");
+        }
+
+        funcionDeclarada();
+        
+        document.write("<br>");
+        
+        // No mostrará nada ya que ha sido invocada antes de su declaración
+        funcionExpresada();
+
+        funcionExpresada = function() {document.write("miguel2")};
+
+    </script>
+    
+</body>
+</html>

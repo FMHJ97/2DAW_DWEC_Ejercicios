@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Arrays</title>
+</head>
+<body>
+
+    <script>
+
+        const array1=["a","b","c"];
+        const vector = array1;
+
+        console.log(array1);
+        console.log(vector);
+
+        vector[0]="f";
+
+        console.log(array1);
+        console.log(vector);
+
+        // --------------------------------
+
+        const array2=["a","b","c"];
+        
+        /* Cuando queremos trabajar con una copia del array,
+        usaremos SpeedString(...) para trabajar por valor. */
+        const vector2=[...array2];
+
+        vector2[1]="m";
+
+        console.log(array2);
+        console.log(vector2);
+
+        // --------------------------------
+
+        var array3=["a",1,"b",4,"c",[11,"m",12]];
+        console.log(array3[1]," ",array3[0]);
+        // Accedemos al array interior.
+        console.log(array3[5]);
+        // Accedemos a los elementos del array interior.
+        console.log(array3[5][0]);
+
+        // --------------------------------
+
+        /* Agregar elementos
+        Para agregar elementos al final podemos utilizar el
+        método push
+        Ej: vector2.push(5);
+        Para quitar elementos del final podemos utilizar el
+        método pop.
+        Ej: vector2.pop(); */
+
+        // --------------------------------
+
+        /* Para recorrer todos los elementos de un array,
+        hacemos uso del For-Each. */
+        let vector3= Array.of("A","B","C");
+
+        vector3.forEach(
+            // Utilizamos una función para mostrar dos cosas, índice y elemento.
+            function(el,index){
+                document.write(`<li>[${index}] ${el}</li>`);
+            }
+        );
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Sets</title>
+</head>
+<body>
+
+    <script>
+
+        /* Los Sets o Conjuntos son elementos iteradores con la
+        peculiaridad de que no recoge elementos repetidos. */
+
+        const c1=new Set([]); // Conjunto o Set vacío.
+        const c2=new Set([1,2,3,4]); // Conjunto con 4 elementos.
+        const c3=new Set([1,1,3,4]); // Conjunto con 3 elementos.
+        
+        /* Es case sensitive, es decir, diferencia entre 
+        mayúsculas y minúsculas. */
+        const c4=new Set(["a","b","D","A"]);
+
+        console.log(c1);
+        console.log(c2);
+        console.log(c3);
+        console.log(c4);
+
+    </script>
+    
+</body>
+</html>
