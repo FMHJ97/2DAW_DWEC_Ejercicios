@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02</title>
+</head>
+<body>
+    <!--Div que contendrá los elementos-->
+    <div id="resultado"></div>
+    <script>
+        // Asignamos el div a una constante.
+        const result = document.getElementById("resultado");
+
+        for (let i = 0; i < 10; i++) {
+            result.innerHTML = `<p><input type="text" id="t${i}"></p>`;
+        }
+    </script>
+</body>
+</html>
