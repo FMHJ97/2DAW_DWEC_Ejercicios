@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02</title>
+    <style>
+        p, #button {
+            font-size: 1.5em;
+        }
+        input {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 02 - Suma de 10 números</h1>
+    <script>
+        // Bucle que creará diez elementos input para poder introducir números.
+        for (let i = 1; i <= 10; i++) {
+            document.write(`<p>Número ${i}: <input type="number" id="n${i}"></p>`);
+        }
+        /**
+         * Función que recoge todos los valores de los elementos input
+         * y muestra un mensaje(alert) con la suma de los mismos. 
+         */
+        function sumarNumeros() {
+            // Variable que guardará la suma de los valores.
+            let suma = 0;
+            // Bucle que recorrerá los inputs y sumará sus valores.
+            for (let i = 1; i <= 10; i++) {
+                let num = parseFloat(document.getElementById(`n${i}`).value);
+                // Comprobamos si el valor obtenido es un número válido.
+                if (!isNaN(num)) {
+                    suma += num;
+                }
+            }
+            // Mostramos el resultado.
+            alert(`El resultado de la suma es ${suma}`);
+        }
+    </script>
+    <!--Botón que llamará a la función sumarNumeros()-->
+    <input type="button" id="button" value="Realizar Suma" onclick="sumarNumeros()">
+</body>
+</html>
