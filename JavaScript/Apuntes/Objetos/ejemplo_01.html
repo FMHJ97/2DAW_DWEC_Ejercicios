@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 01 - Objetos</title>
+</head>
+<body>
+    <script>
+        /* Javascript es un lenguaje orientado a objetos basado en prototipos
+        y no en clases. Cuando en javascript implementamos una clase,
+        en realidad, el motor del navegador transforma esa clase en un prototipo.
+        Un prototipo no es más que un mecanismo por el cual un objeto puede heredar
+        propiedades y métodos de un objeto padre. De hecho, la herencia en javascript
+        se da en la cadena de prototipos. */
+
+        const vehiculo1={
+            nombre: "coche",
+            //notación tradicional ES5
+            acelerar:function() {console.log("Aumenta velocidad");},
+            //notación ES6
+            desacelerar() {console.log("Disminuye velocidad");}
+        }
+        console.log(vehiculo1);
+
+        /* La creación de objetos tal y como hemos hecho anteriormente NO ES VIABLE,
+        porque cada vez que vayamos a crear un tipo de vehículo habría
+        que copiar prácticamente el código del objeto con sus propiedades y métodos.*/
+
+        /* Lo que hay que hacer es crearse una función denominada constructora
+        (porque en realidad no hay clases y solo hay que construirla una vez),
+        y a partir de ella, generaremos nuevos objetos del tipo de función constructora. */
+
+        // FORMA MÁS EFICIENTE DE CREAR OBJETOS pero NO IDEAL
+
+        /* Para pasar propiedades a la función constructora hay que hacerlo
+        como parámetros. Tanto los métodos como atributos tienen que usar 'this.' */
+
+        function Vehiculo (nombre,tipo){
+        // Atributos
+        this.nombre=nombre;
+        this.tipo=tipo;
+        // Métodos
+        this.acelerar=function(){console.log("Esto es aumentar la velocidad")};
+        }
+        const coche= new Vehiculo("Coche","Motor");
+        console.log(coche);
+
+        /* El problema que tendría el prototipo anterior es que al crear
+        dos objetos de dicho prototipo, se está repitiendo el método acelerar
+        en ambos vehículos, y, como cada objeto está almacenado en una variable,
+        ocuparía memoria. Por tanto, lo mejor sería sacar al método acelerar de
+        la función constructora del prototipo, para reutilizarlo de una manera
+        más eficiente y mejorar el rendimiento de la aplicación. */
+
+        // FORMA EFICIENTE e IDEAL (por ahora).
+
+        function UnVehiculo (nombre,tipo){
+        // Atributos
+        this.nombre=nombre;
+        this.tipo=tipo;
+        }
+        // Métodos agregados al prototipo de la función constructora y no al prototipo de vehículo
+        UnVehiculo.prototype.acelerar=function(){console.log("Esto es aumentar la velocidad")};
+
+        const coche2=new UnVehiculo("Coche","Motor");
+        const motocicleta=new UnVehiculo("Motocicleta","Motor");
+
+        console.log(coche2);
+        console.log(motocicleta);
+
+        coche.acelerar();
+        motocicleta.acelerar();        
+
+    </script>
+</body>
+</html>

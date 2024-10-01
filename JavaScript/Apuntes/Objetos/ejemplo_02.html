@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Definir prototipost</title>
+</head>
+<body>
+    <script>
+        // Creación objeto con prototipo con función constructora.
+        function TaxiRenault(tipoMotor, numeroPasajeros, carga, velocidad) {
+            this.tipoMotor = tipoMotor;
+            this.numeroPasajeros = numeroPasajeros;
+            this.carga = carga;
+            this.velocidad = velocidad;
+        }
+        // Añadiendo los propiedades directamente al prototipo.
+        TaxiRenault.prototype.fabricante = 'Renault, S.A.';
+        TaxiRenault.prototype.direccionFabricante = 'c/R, Paris';
+        // Agregando métodos directamente al prototipo.
+        TaxiRenault.prototype.getCapacidad = function () {
+            if (tipoMotor == 'Diesel')
+                return 40;
+            else
+                return 35;
+        }
+        TaxiRenault.prototype.variarCarga = function (variacion) {
+            this.carga = this.carga + variacion;
+        }
+        TaxiRenault.prototype.variarVelocidad = function (variacion) {
+            this.velocidad = this.velocidad + variacion;
+        }
+
+
+        function ejemploObjetos() {
+            var taxi1 = new TaxiRenault(1, 4, 300, 90); var taxi2 = new TaxiRenault(2, 6, 350, 80); var taxi3 = new TaxiRenault(1, 5, 340, 110);
+            console.log('El fabricante del taxi 2 es ' + taxi2.fabricante + ' y la velocidad del taxi 2 es ' + taxi2.velocidad);
+            taxi2.variarVelocidad(-10);
+            console.log('El taxi 2 ha reducido su velocidad y ahora es ' + taxi2.velocidad);
+        }
+        ejemploObjetos();
+    </script>
+</body>
+
+</html>
