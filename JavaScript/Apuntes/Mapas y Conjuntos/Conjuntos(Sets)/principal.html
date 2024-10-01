@@ -25,6 +25,54 @@
         console.log(c3);
         console.log(c4);
 
+        // Agregar elementos a un Set.
+        const set1 = new Set();
+        set1.add(1);
+        set1.add("A");
+        console.log(set1);
+
+        // Comprobamos si aparece dicho elemento.
+        const set2 = new Set([1, 2, 3]);
+        console.log(set2.has(2)); // True
+        console.log(set2.has(4)); // False
+        
+        // Borramos elementos de un Set.
+        const set3 = new Set([1, 2, 3]);
+        console.log(set3.delete(3)); // true
+        console.log(set3.delete(4)); // false
+
+        // Vaciar un Set.
+        const set4 = new Set([1, 2, 3]);
+        set4.clear();
+        console.log(set4.size); // 0
+
+        // Convertir de Set a Array.
+        const s1 = new Set([1, 2, [3, 4]]);
+        console.log(s1.size); // 3 (Contiene 3 elementos)
+        console.log(s1.constructor.name); // "Set"
+        const a1 = [...s1]; // copia del cojunto en un array y que al modificar el array no se modifique el conjunto original
+        console.log(a1.constructor.name); // "Array"
+        console.log(a1); // [1, 2, [3, 4]]
+
+        /* Si queremos una copia del cojunto en un array y que al modificar el array
+        no se modifique el conjunto original, podemos utilizar la función structuredClone() */
+        const set01 = new Set([1, 2, [3, 4]]);
+        const array01 = [...set01];
+        const clonedArray = [...structuredClone(set01)];
+
+        // Convertir de Array a Set.
+        const a2 = [5, 4, 3, 3, 4];
+        const s2 = new Set(a2);
+        console.log(s2); // Set({ 5, 4, 3 });
+
+        /* WeakSet: Son un tipo especial de conjuntos (set) que no permite 
+        introducir elementos de datos primitivos. */
+        const s3 = new Set([1, "A", true]); // OK
+        const s4 = new Set([{ nombre: "Miguel" }, [1, 2]]); // OK
+
+        const ws1 = new WeakSet([1, "A", true]); // ERROR: Uncaught TypeError: Invalid value used in weak set
+        const ws2 = new WeakSet([{ nombre: "Miguel" }, [1, 2]]); // OK
+
     </script>
     
 </body>

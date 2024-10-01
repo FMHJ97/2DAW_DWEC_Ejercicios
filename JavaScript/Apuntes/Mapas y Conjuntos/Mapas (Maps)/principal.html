@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Mapas(Map)</title>
+</head>
+<body>
+    <script>
+
+        /* Los Mapas o Maps en Javascript son estructuras de datos nativas que permiten
+        introducir datos del tipo clave-valor, teniendo en cuenta que las claves no se pueden
+        repetir aunque sí los valores. Si añadimos dos elementos con la misma clave,
+        lo que hará será sobreescribir el valor que se corresponde con esa clave. */
+
+        const map1 = new Map(); // Map({}) (Mapa vacío)
+        const map2 = new Map([[1, "un"]]); // Map({ 1=>"un" })
+        const map3 = new Map([[1, "un"], [2, "dos"], [3, "tres"]]); // Map({ 1=>"un", 2=>"dos", 3=>"tres" })
+        console.log(map3);
+
+        const map4 = new Map([[1, "uno"], [2, "dos"], [1, "tres"]]);
+        console.log(map4.size); // 2 (El 1->"tres" sobreescribe al 1->"uno")
+
+        /*Si usamos .set() para una clave que no existe, se añade al mapa, mientras que
+        si usamos .set() para una clave que ya existe, la sobreescribe. */
+        const map5 = new Map(); // Vacío
+        map5.set(1, "uno");
+        map5.set("A", "letra A");
+        console.log(map5);
+        map5.set(1, "nuevoUno"); // Sobreescribe el anterior
+        console.log(map5);
+
+        // Comprueba si existe un determinado elemento en el Map.
+        const map = new Map([[1, "uno"], [2, "dos"], [3, "tres"]]);
+        console.log(map.has(2)); // true
+        console.log(map.has(4)); // false
+        map.set(4, "cuatro");
+        console.log(map.has(4)); // true
+
+        // Borramos un elemento del Map.
+        const m1 = new Map([[1, "uno"], [2, "dos"], [3, "tres"]]);
+        console.log(m1);
+        console.log(m1.delete(3)); // true
+        console.log(m1.delete(4)); // false
+        console.log(m1); // Map({ 1=>"uno", 2=>"dos" })
+
+        // Vaciamos un Map.
+        const m2 = new Map([[1, "uno"], [2, "dos"], [3, "tres"]]);
+        console.log(m2,m2.size); // 3
+        m2.clear();
+        console.log(m2,m2.size); // 0
+
+        // Convertir Map en Array.
+        const m3 = new Map([[1, "uno"], [2, "dos"], [3, "tres"]]);
+        console.log(m3.size); // 3 (Contiene 3 elementos)
+        console.log(m3.constructor.name); // "Map"
+        const a1 = [...m3];
+        console.log(a1.constructor.name); // "Array"
+        console.log(a1);
+
+        // Convertir Array en Map.
+        const a2=[[1,"uno"],[2,"dos"],[3,"tres"]];
+        console.log(a2.constructor.name);
+        const m4 = new Map(a2);
+        console.log(m4.constructor.name);
+        console.log(m4); // Map({ 1=>"uno", 2=>"dos", 3=>"tres" })
+        
+        // WeakMap
+        const m01 = new Map([[1, "uno"]]); // OK
+        const m02 = new Map([[{ id: 1, type: "number" }, "uno"]]); // OK
+
+        const wm1 = new WeakMap([[1, "uno"]]); // ERROR: Uncaught TypeError: Invalid value used in weak map key
+        const wm2 = new WeakMap([[{ id: 1, type: "number" }, "uno"]]); // OK
+
+    </script>
+</body>
+</html>
