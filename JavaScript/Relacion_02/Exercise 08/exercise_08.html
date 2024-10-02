@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <h1>Cadena de Texto, ¿es palíndromo?</h1>
+    <p>Introduzca una cadena de texto: <input type="text" id="str"></p>
+    <input type="button" value="Analizar cadena" onclick="checkString(str.value)">
+
+    <script>
+        function checkString(cadena) {
+            // Reemplazamos todos los espacios en blanco de la cadena por elemento vacío.
+            // A continuación, la pasamos a minúsculas para mejorar la comprobación.
+            
+            /* Esta expresión regular \s+ busca uno o más espacios en blanco,
+            y el modificador g asegura que se realice la búsqueda en toda la cadena. */
+            let new_cadena = cadena.toLowerCase().replace(/\s+/g, '');
+
+            // Convertimos a Array (carácter por carácter) para poder invertir la cadena.
+            let array = new_cadena.split('').reverse();
+
+            // A continuación, convertimos el array en un String para su comparación.
+            let cadena_invertida = array.join('');
+
+            // Comparamos las cadenas.
+            if (new_cadena === cadena_invertida) {
+                alert("La cadena es un palíndromo.");
+            } else {
+                alert("La cadena NO es un palíndromo.");
+            }
+        }
+    </script>
+</body>
+</html>

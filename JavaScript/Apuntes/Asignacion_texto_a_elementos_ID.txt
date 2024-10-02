@@ -1,0 +1,21 @@
+Which One is the Most Recommended?
+
+If you need to insert or retrieve text (and not HTML),
+textContent is generally more recommended because:
+
+    It's more performant than innerText.
+    It is safe to use as it doesn't interpret the input as HTML (no XSS risks).
+    It works consistently across elements, even when the content is hidden.
+
+Use innerHTML only when you actually need to manipulate HTML structure,
+but be cautious and sanitize any user input to avoid security risks.
+
+
+In summary:
+
+textContent is the safest and most recommended for simple text manipulation.
+
+innerText is useful when you only want the visible text and are concerned
+with what the user sees.
+
+innerHTML should be used with care for more complex HTML manipulations.

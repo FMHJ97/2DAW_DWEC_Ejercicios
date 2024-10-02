@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 06</title>
+</head>
+<body>
+    <h1>El menor de 3 números</h1>
+    <p>Número 1: <input type="number" id="n1"></p>
+    <p>Número 2: <input type="number" id="n2"></p>
+    <p>Número 3: <input type="number" id="n3"></p>
+    <input type="button" value="Mostrar Número Mínimo" 
+        onclick="showMin(parseInt(n1.value), parseInt(n2.value), parseInt(n3.value))">
+    
+    <script>
+        function showMin(num1, num2, num3) {
+            
+            let min = Math.min(num1, num2, num3);
+
+            alert(`El número de menor valor es ${min}`);
+        }
+    </script>
+</body>
+</html>

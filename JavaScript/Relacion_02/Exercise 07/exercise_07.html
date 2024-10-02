@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Cadena de Texto, ¿mayúsculas, minúsculas o ambas?</h1>
+    <p>Introduzca una cadena de texto: <input type="text" id="str"></p>
+    <input type="button" value="Analizar cadena" onclick="checkString(str.value)">
+
+    <script>
+        function checkString(cadena) {
+            // Comprobación mayúsculas.
+            if (cadena === cadena.toUpperCase()) alert("La cadena está formada solo por mayúsculas.");
+            // Comprobación minúsculas .
+            else if (cadena === cadena.toLowerCase()) alert("La cadena está formada solo por minúsculas.");
+            // Si no se cumplen las anteriores, es una cadena mixta.
+            else alert("La cadena está formada por mayúsculas y minúsculas.");                        
+        }
+    </script>
+</body>
+</html>
