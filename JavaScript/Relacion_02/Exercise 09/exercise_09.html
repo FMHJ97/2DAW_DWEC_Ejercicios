@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 09 - Set</title>
+</head>
+<body>
+    
+    <script>
+        // Creamos un conjunto o set.
+        const meses = new Set(["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+            "Agosto", "Septiembre", "Octubre","Noviembre", "Diciembre"]);
+
+        // Mostramos el conjunto inicial.
+        const meses_0 = [...meses];
+        console.log(meses_0);
+
+        // Eliminar el mes de mayo (y comprobar).
+        console.log(meses.delete("Mayo"));
+        console.log(meses);
+
+        // Añadir un supuesto mes llamado “NuevoMes” (y comprobar).
+        console.log(meses.add("NuevoMes"));
+        console.log(meses);
+
+        // Comprobar si existen los meses de Mayo y Junio.
+        console.log(meses.has("Mayo"));
+        console.log(meses.has("Junio"));
+
+        // Convertir el conjunto en el array llamado arraymeses.
+        const arraymeses = [...meses];
+        console.log(arraymeses);
+
+        // Eliminar del array el mes de Enero y comprobar qué pasa tanto en el array como en el conjunto.
+        arraymeses.splice(0, 1);
+        console.log(arraymeses);
+        console.log(meses);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 09 - Map</title>
+</head>
+<body>
+    
+    <script>
+        // Creamos un map.
+        const meses = new Map([[1, "Enero"], [2, "Febrero"], [3, "Marzo"], [4, "Abril"], [5,"Mayo"], [6, "Junio"], [7,"Julio"],
+            [8,"Agosto"], [9,"Septiembre"], [10,"Octubre"], [11,"Noviembre"], [12, "Diciembre"]]);
+
+        // Mostramos el mapa inicial.
+        const meses_0 = [...meses];
+        console.log(meses_0);
+
+        // Eliminar el mes de mayo (y comprobar).
+        console.log(meses.delete(5));
+        console.log(meses);
+
+        // Añadir un supuesto mes llamado “NuevoMes” (y comprobar).
+        console.log(meses.set(13, "NuevoMes"));
+        console.log(meses);
+
+        // Comprobar si existen los meses de Mayo y Junio.
+        console.log(meses.has(5));
+        console.log(meses.has(6));
+
+        // Convertir el conjunto en el array llamado arraymeses.
+        const arraymeses = [...meses];
+        console.log(arraymeses);
+
+        // Eliminar del array el mes de Enero y comprobar qué pasa tanto en el array como en el conjunto.
+        arraymeses.splice(0, 1);
+        console.log(arraymeses);
+        console.log(meses);
+
+    </script>
+
+</body>
+</html>
