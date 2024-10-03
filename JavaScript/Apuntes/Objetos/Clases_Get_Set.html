@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clases: Get y Set</title>
+</head>
+<body>
+    <script>      
+
+        class Animal{
+            //constructor definido con la palabra constructor
+            constructor (nombre,especie){
+                this.nombre=nombre;
+                this.especie=especie;
+            }
+            // métodos de la clase, se definen de forma literal, es decir, de la forma nombremetodo(){}
+            identificar(){console.log("Emito mi sonido característico");}
+            crecer(){console.log("con los años me voy haciendo mayor");}
+        }
+
+        //herencia
+        class Gato extends Animal{
+            constructor(nombre,especie,subespecie){
+                //invocacion método super para llamar al constructor de la clase de la que hereda
+                super(nombre,especie);
+                this.subespecie=subespecie;
+                this.raza=null;
+            }
+            // sobreescritura de método identificar
+            identificar(){console.log("miau miau");}
+            // nuevo método
+            reproducir(){console.log("Soy vivíparo");}
+            
+            //métodos get y set para obtener y modificar la propiedad raza
+            get getRaza(){return this.raza};
+            set setRaza(raza){this.raza=raza};
+        }
+
+        const gato= new Gato("Garfield","Mamífero","Felino");
+
+        gato.setRaza="Pardo";
+
+        console.log(gato.getRaza);        
+
+    </script>
+</body>
+
+</html>

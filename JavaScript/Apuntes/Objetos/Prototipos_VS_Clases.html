@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prototipos VS Clases</title>
+</head>
+<body>
+    <script>
+
+        // PROTOTIPOS //
+
+        //objeto con prototipos
+        function Animal(nombre,especie){
+            // atributos
+            this.nombre=nombre;
+            this.especie=especie;
+        }
+
+        // métodos agregados al prototipo de la función
+        Animal.prototype.identificar=function(){console.log("Emito mi sonido característico")};
+        Animal.prototype.crecer=function(){console.log("con los años me voy haciendo mayor");}
+        
+        //herencia en prototipos
+
+        //generamos una función constructora Gato para crear un animal gato que heredará de Animal, que tendrá los dos mismos parámetros
+        //que la clase Animal, pero además la subespecie a la que pertenece el animal gato.
+        function Gato(nombre,especie,subespecie){
+            //crear variable que vamos a llamar super que haría lo mismo que super en clases para asignarle del prototipo padre en el que //vamos a basar l
+            // a herencia, pero con el problema de que cada vez que yo cree un objeto Gato, crearía una variable con todo el //prototipo Animal
+            this.super=Animal;
+            //Ejecutamos el método super con los parámetros del prototipo Animal
+            this.super(nombre,especie);
+            //añadimos el atributo subespecie del prototipo Gato
+            this.subespecie=subespecie;
+        }
+
+        //Gato hereda de Animal. Esta es la línea que realmente realiza la herencia.
+        Gato.prototype=new Animal();
+        //ahora hacemos que el constructor obtenga todas las propiedades del prototipo padre Animal, así Gato hereda todo lo de Animal
+        Gato.prototype.constructor=Gato;
+
+        //podemos sobreescribir métodos del padre"
+        Gato.prototype.identificar=function(){console.log("soy un felino dentro de los Animales");}
+        //nuevo método que no existe en la clase Animal
+        Gato.prototype.reproducir=function(){console.log("Soy vivíparo");}
+
+        //ya podemos decir que la instancia Garfield es un objeto del prototipo Gato;
+        const garfieldp= new Gato("Garfield","Mamífero","Felino"),
+        lucasp=new Animal("Lucas","Ave"),
+        garfield2p= new Gato("Garfield2","Mamífero","Felino");
+
+        console.log("Garfield y Lucas como prototipos");
+        console.log(garfieldp);
+        console.log(lucasp);
+        console.log(garfield2p);
+        
+        // CLASES //
+
+        //Objetos con clases
+        class Animal2{
+            //constructor de la clase llamada constructor
+            constructor(nombre,especie){
+                // atributos
+                this.nombre=nombre;
+                this.especie=especie;
+            }
+            // métodos agregados al prototipo de la función
+            identificar(){console.log("Emito mi sonido característico");}
+            crecer(){console.log("con los años me voy haciendo mayor");}
+        }
+
+        doraemon=new Animal2("Doraemon","mamífero");
+
+        console.log(doraemon);
+        doraemon.identificar();
+
+        //herencia con clases
+        class Gato2 extends Animal2{
+            //constructor de la clase
+            constructor(nombre,especie,subespecie){
+                //método super que lo que hace es llamar al constructor de la clase padre
+                super(nombre,especie);
+                //añadimos el atributo subespecie
+                this.subespecie=subespecie;
+            }
+            //podemos sobreescribir métodos del padre
+            identificar(){console.log("soy un perro dentro de los animales");}
+            //nuevo método que no existe en la clase Animal
+            reproducir(){console.log("Soy vivíparo");}
+        }
+        
+        const garfield= new Gato2("Garfield","Mamífero","Felino"),
+        lucas=new Animal2("Lucas","Ave"),
+        garfield2= new Gato2("Garfield2","Mamífero","Felino");
+
+        console.log("Garfield y Lucas como clases");
+        console.log(garfield);
+        console.log(lucas);
+        console.log(garfield2);        
+
+    </script>
+</body>
+
+</html>

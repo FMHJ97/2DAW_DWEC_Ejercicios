@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clases en JavaScript</title>
+</head>
+<body>
+    <script>
+
+        class Animal{
+            //constructor definido con la palabra constructor
+            constructor (nombre,especie){
+                this.nombre=nombre;
+                this.especie=especie;
+            }
+            // métodos de la clase, se definen de forma literal, es decir,
+            // de la forma nombreMetodo(){}
+            identificar(){console.log("Emito mi sonido característico");}
+            crecer(){console.log("con los años me voy haciendo mayor");}
+        }
+
+        const felino= new Animal("Garfield","Mamífero"),
+        pato=new Animal("Lucas","Ave");
+
+        console.log(felino);
+        console.log(pato);
+        felino.identificar();
+
+        // Herencia en Clases.
+
+        class Gato extends Animal{
+            constructor(nombre,especie,subespecie){
+                //invocacion método super para llamar al constructor de la clase de la que hereda
+                super(nombre,especie);
+                this.subespecie=subespecie;
+            }
+            // sobreescritura de método identificar
+            identificar(){console.log("miau miau");}
+            // nuevo método
+            reproducir(){console.log("Soy vivíparo");}
+        }
+        const gato= new Gato("Garfield","Mamífero","Felino");
+        
+        console.log(gato);
+        gato.identificar();
+        gato.crecer();
+        gato.reproducir();
+
+    </script>
+</body>
+
+</html>

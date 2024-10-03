@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Herencia con prototipos</title>
+</head>
+<body>
+    <script>
+        function Animal(nombre,especie){
+        // atributos
+        this.nombre=nombre;
+        this.especie=especie;
+        }
+
+        // métodos agregados al prototipo de la función
+        Animal.prototype.identificar=function(){console.log("Emito mi sonido característico");}
+        Animal.prototype.crecer=function(){console.log("con los años me voy haciendo mayor");}
+        
+        //herencia en prototipos
+        //generamos una función constructora Gato para crear un animal gato que heredará de Animal, que tendrá los dos mismos parámetros
+        //que la clase Animal, pero además la subespecie a la que pertenece el animal gato.
+        function Gato(nombre,especie,subespecie){
+        
+        //crear variable que vamos a llamar super que haría lo mismo que super en clases para asignarle del prototipo padre en el que
+        //vamos a basar la herencia, pero con el problema de que cada vez que yo cree un objeto Gato, crearía una variable con todo el
+        //prototipo Animal
+        this.super=Animal;
+
+        //Ejecutamos el método super con los parámetros del prototipo Animal
+        this.super(nombre,especie);
+        //añadimos el atributo subespecie del prototipo Gato
+        this.subespecie=subespecie;
+        }
+
+        //Gato hereda de Animal. Esta es la línea que realmente realiza la herencia.
+        Gato.prototype=new Animal();
+
+        //ahora hacemos que el constructor obtenga todas las propiedades del prototipo padre Animal, así Gato hereda todo lo de Animal
+        Gato.prototype.constructor=Gato;
+
+        //podemos sobreescribir métodos del padre"
+        Gato.prototype.identificar=function(){console.log("soy un felino dentro de los Animales");}
+        
+        //nuevo método que no existe en la clase Animal
+        Gato.prototype.reproducir=function(){console.log("Soy vivíparo");}
+        
+        //ya podemos decir que la instancia gato es un objeto del prototipo Gato;
+        const gato= new Gato("Garfield","Mamífero","Felino"),
+        pato=new Animal("Lucas","Ave");
+
+        console.log(gato.reproducir()); console.log(pato.crecer());
+    </script>
+</body>
+
+</html>

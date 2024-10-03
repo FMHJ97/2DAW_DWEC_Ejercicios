@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Definir Objetos de Forma Literal</title>
+</head>
+<body>
+    <script>
+        // Ejemplo Sencillo.
+        var libro = {
+        páginas: 18,
+        tema: "Infantil",
+        tapa: "dura"
+        };
+
+        // Ejemplo Completo.
+        var hotel = {
+            nombre: "Hotel mediaestrella",
+            habitaciones: 137,
+            ocupadas: 30,
+            tipo_habitaciones: ['sencilla', 'doble', 'suite'],
+            wifi: true,
+            verificaDisponibilidad: function(){
+                return this.habitaciones - this.ocupadas;
+            }
+        };
+        
+        // La forma compleja
+        // Se suele usar cuando no sabemos cuántas propiedades vamos a tener.
+        // Podemos usar la notación punto o la de corchetes.
+        var libro2 = new Object(); 
+        libro2.paginas = 200; 
+        libro2.tema= "novela"; 
+        libro2.tapa= "blanda"; 
+
+        var libro3 = new Object();
+        libro3["paginas"]=200;
+        libro3["tema"]="novela";
+        libro3["tapa"]="blanda";
+
+        console.log(hotel);
+        console.log(libro2);
+
+        // Modificación de Objetos.
+
+        // Es posible modificar un objeto añadiendo y/o modificando propiedades tanto
+        // para los que hayamos creado nosotros como para los Objeto internos.
+        Date.prototype.getCadenaFecha = function(){
+            var dia = String( this.getDate() );
+            var mes = String( this.getMonth() );
+            var anno = this.getFullYear();
+            if(dia.length == 1 ) { dia = "0" + dia; }
+            if(mes.length == 1 ) {mes = "0" + mes; }
+            return dia + "/" + mes + "/" + anno;
+        }
+        // Para invocarla:
+        var objFecha = new Date( 2011, 4, 3 );
+        alert("Fecha: [" + objFecha.getCadenaFecha() + "]" );
+
+    </script>
+</body>
+
+</html>

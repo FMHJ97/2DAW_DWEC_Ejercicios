@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Definir prototipost</title>
+    <title>Definir prototipos 02</title>
 </head>
 <body>
     <script>
@@ -15,6 +15,7 @@
         // Añadiendo los propiedades directamente al prototipo.
         TaxiRenault.prototype.fabricante = 'Renault, S.A.';
         TaxiRenault.prototype.direccionFabricante = 'c/R, Paris';
+
         // Agregando métodos directamente al prototipo.
         TaxiRenault.prototype.getCapacidad = function () {
             if (tipoMotor == 'Diesel')
@@ -36,6 +37,7 @@
             taxi2.variarVelocidad(-10);
             console.log('El taxi 2 ha reducido su velocidad y ahora es ' + taxi2.velocidad);
         }
+        
         ejemploObjetos();
     </script>
 </body>
