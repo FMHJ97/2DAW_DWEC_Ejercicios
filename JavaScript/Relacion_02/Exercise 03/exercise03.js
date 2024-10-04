@@ -18,6 +18,7 @@ function mostrarArray() {
     body.innerHTML = `<p>Array = [${array.join(", ")}]</p>`;
     // Insertamos un botón a continuación para mostrar (alert) la suma.
     body.insertAdjacentHTML("beforeend",`<input type="button" value="Mostrar Suma" onclick="sumarValores()">`);
+    // body.innerHTML += `<input type="button" value="Mostrar Suma" onclick="sumarValores()">`;
 }
 // Función que suma los valores del array.
 function sumarValores() {

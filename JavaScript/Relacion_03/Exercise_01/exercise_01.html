@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Objetos</title>
+</head>
+<body>
+    
+    <script>
+
+        // Agregamos el método getFechaActual() al objeto Date.
+        Date.prototype.getFechaActual = function() {
+            // Obtenemos los valores correspondientes y los pasamos a String para mostrarlos.
+            var dia = String(this.getDate());
+            var mes = String(this.getMonth());
+            var anio = String(this.getFullYear());
+            // Personalizamos los dígitos del día y mes.
+            if (dia.length == 1) dia = "0" + dia;
+            if (mes.length == 1) mes = "0" + mes;
+            // Calculamos el cuatrimestre actual.
+            var ctr = String('');
+            if (mes < 5) ctr = "primer";
+            else if (mes < 9) ctr = "segundo";
+            else ctr = "tercer";
+            // Devolvemos la fecha.
+            return `Estamos en el día ${dia} del mes ${mes} del ${ctr} cuatrimestre del año ${anio}`;
+        }
+
+        var fecha = new Date();
+        console.log(fecha.getFechaActual());
+
+    </script>
+
+</body>
+</html>
