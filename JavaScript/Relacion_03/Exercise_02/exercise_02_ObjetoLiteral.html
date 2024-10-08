@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Factura (Objeto Literal)</title>
+</head>
+<body>
+    <script>
+        // Creamos el objeto Factura, de forma literal.
+        const factura = {
+            // Agregamos como propiedad los diferentes objetos.
+            empresa: {
+                nombre: "Electro Inc",
+                direccion: "Calle San Jorge",
+                telefono: "957606565",
+                nif: "123456EE"
+            },
+            cliente: {
+                num_cliente: "2323A",
+                dni: "14532161K",
+                nombre: "Carlos García",
+                domicilio: "Calle Reyes",
+                cp: "14500",
+                ciudad: "Puente Genil",
+                provincia: "Córdoba"
+            },
+            productos: [
+                {descripcion: "Bombilla", precio: 2, cantidad: 100},
+                {descripcion: "Microondas", precio: 219, cantidad: 20},
+                {descripcion: "Televisor", precio: 186, cantidad: 10}
+            ],
+            pago: {
+                importeTotal: 0,
+                metodoPago: "Tarjeta Crédito"
+            },
+            // Agregamos los métodos correspondientes al objeto creado.
+            calcularImporteTotal() {
+                for (let i = 0; i < this.productos.length; i++) {
+                    this.pago.importeTotal += (this.productos[i].cantidad * this.productos[i].precio);
+                }
+            },
+            mostrarImporteTotal() {
+                console.log(`El importe total de la factura es ${this.pago.importeTotal}`);
+            }
+        };
+        // Comprobar el funcionamiento.
+        // Mostramos el importe total por defecto.
+        factura.mostrarImporteTotal();
+
+        // Calculamos el importe total y mostramos.
+        factura.calcularImporteTotal();
+        factura.mostrarImporteTotal();
+    </script>
+</body>
+</html>
