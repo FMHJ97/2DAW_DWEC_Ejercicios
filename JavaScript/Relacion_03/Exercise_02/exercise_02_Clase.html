@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Factura (Clase)</title>
+</head>
+<body>
+    <script>
+        // Creamos cada una de las clases correspondientes a la factura.
+        class Empresa {
+            // Constructor con las propiedades de la clase.
+            constructor(nombre, direccion, telefono, nif) {
+                this.nombre = nombre;
+                this.direccion = direccion;
+                this.telefono = telefono;
+                this.nif = nif;
+            }
+        }
+        class Cliente {
+            // Constructor con las propiedades de la clase.
+            constructor(num_cliente, dni, nombre, domicilio, cp, ciudad, provincia) {
+                this.num_cliente = num_cliente;
+                this.dni = dni;
+                this.nombre = nombre;
+                this.domicilio = domicilio;
+                this.cp = cp;
+                this.ciudad = ciudad;
+                this.provincia = provincia;
+            }
+        }  
+        class Producto {
+            // Constructor con las propiedades de la clase.
+            constructor(descripcion, precio, cantidad) {
+                this.descripcion = descripcion;
+                this.precio = precio;
+                this.cantidad = cantidad;
+            }
+        }
+
+        // Creamos la Clase DatosFactura que contendrá las clases anteriores.
+        class DatosFactura {
+            // Constructor con las propiedades de la clase.
+            constructor(Empresa, Cliente, productos) {
+                this.Empresa = Empresa;
+                this.Cliente = Cliente;
+                this.productos = productos;
+            }            
+        }
+
+        // Creamos la Clase Factura, que hereda de la Clase DatosFactura.
+        class Factura extends DatosFactura {
+            // Constructor con las propiedades de la Clase Padre y propias.
+            constructor(Empresa, Cliente, productos, formaPago, importeTotal=0) {
+                super(Empresa, Cliente, productos);
+                this.importeTotal = importeTotal;
+                this.formaPago = formaPago;
+            }
+            // Le asignamos los métodos correspondientes.
+            calcularImporteTotal() {
+                // Usamos 'of' para iterar sobre los valores o elementos del array.
+                // Al usar 'in', recogemos el índice de cada elemento del array. 
+                for (const item of this.productos) {
+                    this.importeTotal += item.precio * item.cantidad;
+                }
+            }
+            mostrarImporteTotal() {
+                console.log(`El importe total de la factura es ${this.importeTotal}€`);
+            }
+            mostrarLineasFactura() {
+                for (const item of this.productos) {
+                    console.log(`Producto: ${item.descripcion} - Precio: ${item.precio}€ - Cantidad: ${item.cantidad}`);
+                }
+            }
+        }
+
+        // Comprobamos funcionamiento.
+        const factura1 = new Factura(
+            new Empresa("Electro Inc","Calle San Jorge","957606565","123456EE"),
+            new Cliente("2323A","14532161K","Carlos García","Calle Reyes","14500","Puente Genil","Córdoba"),
+            [new Producto("Bombilla",2,100), new Producto("Microondas",219,20), new Producto("Televisor",186,10)],
+            "Tarjeta de crédito"
+        );
+
+        // Mostramos la Clase creada.
+        console.log(factura1);
+        
+        // Utilizamos los métodos.
+        factura1.mostrarImporteTotal(); // Saldrá 0.
+
+        factura1.mostrarLineasFactura();
+        factura1.calcularImporteTotal();
+        factura1.mostrarImporteTotal();
+    </script>
+</body>
+</html>
