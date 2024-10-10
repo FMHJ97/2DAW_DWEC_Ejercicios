@@ -8,6 +8,43 @@
 <body>
     
     <h1>Ejercicio 03 - Cuadrado</h1>
+    <p>Introduzca lado: <input type="number" id="lado"></p>
+    <input type="button" value="Calcular perímetro" onclick="calcularPerimetro(parseInt(lado.value))">
+    <input type="button" value="Calcular área" onclick="calcularArea(parseInt(lado.value))">
+
+    <script>
+        // Creamos la Clase Cuadrado.
+        class Cuadrado {
+            // Constructor con las propiedades de la clase.
+            constructor(lado) {
+                this.lado = lado;
+            }
+            // Métodos de la clase.
+            calcularPerimetro() {
+                return this.lado * 4;
+            }
+            calcularArea() {
+                return this.lado * this.lado;
+            }
+        }
+
+        // Funciones (onclick).
+        function calcularPerimetro(lado) {
+            // Inicializamos el objeto.
+            let square = new Cuadrado(lado);
+            // Mostramos el perimetro del cuadrado.
+            let perimetro = square.calcularPerimetro();
+            alert(`El perímetro del cuadrado con lado ${lado} es ${perimetro}`);
+        }
+        function calcularArea(lado) {
+            // Inicializamos el objeto.
+            let square = new Cuadrado(lado);
+            // Mostramos el area del cuadrado.
+            let area = square.calcularArea();
+            alert(`El área del cuadrado con lado ${lado} es ${area}`);
+        }        
+
+    </script>
 
 </body>
 </html>

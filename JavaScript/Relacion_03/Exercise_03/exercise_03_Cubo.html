@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Cubo</title>
+</head>
+<body>
+    
+    <h1>Ejercicio 03 - Cubo</h1>
+    <p>Introduzca lado: <input type="number" id="lado"></p>
+    <input type="button" value="Calcular perímetro" onclick="calcularPerimetro(parseInt(lado.value))">
+    <input type="button" value="Calcular área" onclick="calcularArea(parseInt(lado.value))">
+    <input type="button" value="Calcular volumen" onclick="calcularVolumen(parseInt(lado.value))">
+
+    <script>
+        // Creamos la Clase Cuadrado.
+        class Cuadrado {
+            // Constructor con las propiedades de la clase.
+            constructor(lado) {
+                this.lado = lado;
+            }
+            // Métodos de la clase.
+            calcularPerimetro() {
+                return this.lado * 4;
+            }
+            calcularArea() {
+                return this.lado * this.lado;
+            }
+        }
+
+        // Creamos la Clase Heredada Cubo.
+        class Cubo extends Cuadrado {
+            // Constructor con las propiedades.
+            constructor(lado) {
+                super(lado);
+            }
+            // Métodos de la clase.
+            calcularPerimetro() {
+                return (this.lado * 4) * 3;
+            }
+            calcularArea() {
+                return (this.lado * this.lado) * 6;
+            }
+            calcularVolumen() {
+                return this.lado * this.lado * this.lado;
+            }
+        }
+
+        // Funciones (onclick).
+        function calcularPerimetro(lado) {
+            // Inicializamos el objeto.
+            let cube = new Cubo(lado);
+            // Mostramos el perimetro del cubo.
+            let perimetro = cube.calcularPerimetro();
+            alert(`El perímetro del cubo con lado ${lado} es ${perimetro}`);
+        }
+        function calcularArea(lado) {
+            // Inicializamos el objeto.
+            let cube = new Cubo(lado);
+            // Mostramos el area del cubo.
+            let area = cube.calcularArea();
+            alert(`El área del cubo con lado ${lado} es ${area}`);
+        }
+        function calcularVolumen(lado) {
+            // Inicializamos el objeto.
+            let cube = new Cubo(lado);
+            // Mostramos el volumen del cubo.
+            let volumen = cube.calcularVolumen();
+            alert(`El volumen del cubo con lado ${lado} es ${volumen}`);
+        }     
+
+    </script>
+
+</body>
+</html>
