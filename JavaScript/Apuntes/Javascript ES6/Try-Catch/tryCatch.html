@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //errorDefinicion1; //error en definición variableDefinicion1
+        try {
+            let numero='y';
+            //lanzamos error si detectamos alguno
+            if (isNaN(numero)) {
+                throw new Error("No has introducido un número");
+            }
+            // error en definición variable errorDefinicion2,
+            // en el momento en que se encuentra un error no sigue interpretando el código
+            console.log("Esto ya no se interpreta porque se detectó error justo antes");
+        }
+        catch(error) {
+            // zona que captura cualquier error surgido o lanzado en el try
+            console.log(error); //imprimimos el error gestionado con catch
+        }
+        finally {
+            // zona para ejecutar cualquier código siempre al final de un bloque try-catch.
+            console.log("Esto se ejecuta siempre al final");
+        }
+
+    </script>
+
+</body>
+</html>
