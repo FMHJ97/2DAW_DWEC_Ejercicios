@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clase1{ background-color: "grey"; color:"pink"; }
+        .clase2{ background-color: "brown"; color:"blue"; }
+    </style>
+</head>
+<body>
+    
+    <a href="https://www.marca.es" id="enlace" data-tema="deportes"
+    style="background-color:yellow;color:green" class="clase1" >Ir al Marca</a>
+    
+    <script>
+        const $enlace=document.getElementById("enlace");
+
+        //Acceder a la clase de un elemento
+        console.log($enlace.className);
+
+        //Acceder a la lista de clases de un elemento
+        console.log($enlace.classList);
+
+        //Añadir una clase a un elemento
+        $enlace.classList.add("clase2");
+        console.log($enlace.classList);
+
+        //Eliminar una clase de un elemento
+        $enlace.classList.remove("clase1");
+        console.log($enlace.classList);
+
+        //comprobar si un elemento tiene una clase
+        console.log($enlace.classList.contains("clase1"),$enlace.classList.contains("clase2"));
+        
+        //asignar una clase si no la tiene o retirarla si la tiene
+        $enlace.classList.toggle("clase1");
+        $enlace.classList.toggle("clase2");
+        console.log($enlace.classList.contains("clase1"),$enlace.classList.contains("clase2"));
+        
+        //reemplazar una clase por otra
+        console.log($enlace.classList);
+        $enlace.classList.replace("clase1","clase2");
+        console.log($enlace.classList);
+    </script>
+
+</body>
+</html>

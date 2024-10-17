@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" name="nombreDiv">
+        <p id="primerParrafo" name="primero">Primer párrafo</p>
+        <p id="segundoParrafo" name="segundo">Segundo párrafo</p>
+        <p id="terceParrafo" name="tercero">Tercer párrafo</p>
+    </div>
+    <script>
+        // Imprimimos el elemento más "alto". Por defecto, será window.
+        // console.log(window.document);
+        console.log(document);
+
+        // getElementsByTagName()
+        //
+        // Obtiene todos los elementos de la página XHTML cuya etiqueta sea
+        // igual que el parámetro que se le pasa a la función.
+        //
+        // El valor que devuelve la función es un array de nodos DOM (HTMLCollection) con todos los nodos
+        // que cumplen la condición de que su etiqueta coincide con el parámetro proporcionado.
+        var d = document;
+        var divs = d.getElementsByTagName("div");
+        var parrafos = d.getElementsByTagName("p");
+
+        console.log(divs);
+        console.log(parrafos);
+
+        // Acceder al segundo elemento de la variable parrafos.
+        console.log(parrafos[1]);
+
+        // Podemos aplicar las propiedades a dicha colección.
+        console.log(parrafos.length);
+
+        // getElementsByName()
+        //
+        // Obtener los elementos cuyo atributo name sea igual al parámetro
+        // proporcionado. Devuelve una lista de nodos DOM.
+        var divs2 = d.getElementsByName("nombreDiv");
+        var parrafos2 = d.getElementsByName("tercero");
+
+        console.log(divs2);
+        console.log(parrafos2);
+
+        // getElementById() - El más utilizado de los anteriores.
+        //
+        // Devuelve el elemento XHTML cuyo atributo id coincide con el parámetro indicado
+        // en la función. Como el atributo id debe ser único para cada elemento de una misma
+        // página, la función devuelve únicamente el nodo deseado.
+        //
+        // Devuelve un único elemento.
+        var divs3 = d.getElementById("div1");
+        var parrafos3 = d.getElementById("primerParrafo");
+
+        console.log(divs3);
+        console.log(parrafos3);        
+    </script>
+</body>
+</html>

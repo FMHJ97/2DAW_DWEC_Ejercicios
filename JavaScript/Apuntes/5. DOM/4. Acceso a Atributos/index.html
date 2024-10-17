@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="parrafo"class="normal"></p>
+    <a id="enlace" href="http://www...com">Enlace</a>
+    <img id="imagen" style="margin:2px; border:2px;" src=""/> 
+    <p id="parrafo2" style="font-weight: bold;">...</p>
+
+    <script>
+
+        // El único atributo XHTML que no tiene el mismo nombre en XHTML y
+        // en las propiedades DOM es el atributo class por ser una palabra
+        // reservada. En su lugar, se usa el nombre className para acceder al
+        // atributo class de XHTML:
+        var parrafo = document.getElementById("parrafo");
+        console.log(parrafo.className);
+
+
+        // Si el nombre de una propiedad CSS es compuesto, se accede a su valor
+        // modificando ligeramente su nombre.
+        //
+        // La transformación del nombre de las propiedades CSS compuestas
+        // consiste en eliminar todos los guiones medios (-) y escribir en
+        // mayúscula la letra siguiente a cada guión medio.
+        var parrafo2 = document.getElementById("parrafo2");
+        console.log(parrafo2.style.fontWeight);
+
+        // Obtener el valor de la propiedad margin de la imagen (se utiliza
+        // el atributo style).
+        var imagen = document.getElementById("imagen");
+        console.log(imagen.style.margin);
+
+        // Obtener la dirección de un enlace
+        var enlace = document.getElementById("enlace");
+        console.log(enlace.href);
+
+    </script>
+</body>
+</html>
