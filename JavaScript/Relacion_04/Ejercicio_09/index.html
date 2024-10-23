@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 09</title>
+</head>
+<body>
+    <h1>Objeto con 2 arrays (Ascendente y Descendente)</h1>
+    
+    <script>
+        // Array por defecto.
+        const array = [12,-5,3,10,22,19];
+        console.log("Array original:", array);
+
+        function getObjectArray(array) {
+            // Hacemos una copia del array original para cada ordenación.
+            let arrayAsc=[...array];
+            let arrayDesc=[...array];
+
+            // Ordenamos cada array.
+            arrayAsc.sort((a,b)=>a-b); //Ascendente
+            arrayDesc.sort((a,b)=>b-a); //Descendente
+
+            // Devolvemos un objeto con los arrays.
+            return {
+                Resultado: {asc: arrayAsc, desc: arrayDesc}
+            };
+        }
+
+        console.log("Objeto resultante:",getObjectArray(array));
+        
+    </script>
+</body>
+</html>

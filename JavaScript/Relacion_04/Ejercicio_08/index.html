@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 08</title>
+</head>
+<body>
+    <h1>Objeto con 2 arrays (Pares e Impares)</h1>
+    
+    <script>
+        // Array por defecto.
+        const array = [12,-5,3,10,22,19];
+        console.log("Array:", array);
+
+        function getObjectFromArray(array) {
+            // Arrays que contendrán números pares e impares.
+            let arrayPar=[]; let arrayImpar=[];
+
+            // Recorremos el array parámetro.
+            array.forEach(element => {
+                // Agregamos el elemento actual al array par o impar.
+                if (element % 2 == 0) arrayPar.push(element);
+                else arrayImpar.push(element);
+            });
+
+            // Devolvemos un objeto con los arrays par e impar.
+            return {
+                Resultado: {pares: arrayPar, impares: arrayImpar}
+            };
+        }
+
+        console.log("Objeto resultante:",getObjectFromArray(array));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07</title>
+</head>
+<body>
+    <h1>El mayor y menor número de un array como parámetro</h1>
+    
+    <script>
+        // Array por defecto.
+        const array = [12,-5,3,0,10,22];
+        console.log("Array original:", array);
+
+        // Copia del array para la función.
+        const arrayCopia = [...array];
+
+        // Función que reordena el array parámetro.
+        const getMayorMenor = (array) => {
+            // Utilizamos el método sort con función de comparación.
+            array.sort(
+                (a, b)=>{return a - b}
+            );
+            
+            // Recogemos el menor(primer elemento) y mayor(último elemento) número del array.
+            let menor = array[0];
+            let mayor = array[array.length - 1];
+
+            // Retornamos un array con el mayor y menor número.
+            return [mayor, menor];
+        };
+
+        // Imprimimos el array con el mayor y menor número.
+        console.log("Array resultante:", getMayorMenor(arrayCopia));
+    </script>
+</body>
+</html>
