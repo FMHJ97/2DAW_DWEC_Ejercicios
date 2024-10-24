@@ -45,3 +45,9 @@ class HabitacionHotel extends Habitacion {
         return (this.numHabsEstandar * precioHabEstandar) + (this.numHabsSuite * precioHabSuite);
     }
 }
+// Objeto de la clase HabitacionHotel.
+const habHotel = new HabitacionHotel(11,4,2,"Pepe",4,20,5);
+// Mostramos el objeto creado.
+console.log(habHotel);
+console.log(`Precio habitación actual en hotel: ${habHotel.calcularPrecio()}€`);
+console.log(`Recaudación total del hotel (habs ocupadas): ${habHotel.calcularRecaudacionHotel()}€`);
