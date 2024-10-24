@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--
+    Sintaxis: elementoObjetivo.insertAdjacentElement(posición, elemento);
+        - posicion
+            • 'beforebegin': Antes del elementoObjetivo.
+            • 'afterbegin': Dentro del elementoObjetivo, después de su primer hijo.
+            • 'beforeend': Dentro del elementoObjetivo, antes de su último hijo.
+            • 'afterend': Después del elementoObjetivo.
+        - Elemento
+            • El elemento a insertar
+    -->
+
+    <section id="seccion" class="claseSeccion">
+        <div id="parrafos" class="clasediv">
+            <p id="parrafo1"> Párrafo primero para aprender DOM Traversing </p>
+            <p id="parrafo2"> Párrafo segundo para aprender DOM Traversing </p>
+            <p id="parrafo3"> Párrafo terdero para aprender DOM Traversing</p>
+        </div>
+    </section>
+
+    <script>
+        var $parrafo2=document.getElementById("parrafo2");
+        var $seccion=document.getElementById("seccion");
+
+        var $parrafoNuevoAntes = document.createElement("p");
+        $parrafoNuevoAntes.innerHTML="Este es el nuevo párrafo insertado antes de párrafo2";
+        
+        var $parrafoNuevoDespues = document.createElement("p");
+        $parrafoNuevoDespues.innerHTML="Este es el nuevo párrafo insertado después de párrafo2";
+        
+        var $parrafoNuevoAntesPrimerHijo = document.createElement("p");
+        $parrafoNuevoAntesPrimerHijo.innerHTML="Nuevo párrafo insertado antes del primer hijo del párrafo2";
+       
+        var $parrafoNuevoDespuesUltimoHijo = document.createElement("p");
+        $parrafoNuevoDespuesUltimoHijo.innerHTML="Nuevo párrafo insertado antes del primer hijo del párrafo2";
+        
+        $parrafo2.insertAdjacentElement("beforebegin", $parrafoNuevoAntes);
+        $parrafo2.insertAdjacentElement("afterend", $parrafoNuevoDespues);
+        $seccion.insertAdjacentElement("afterbegin",$parrafoNuevoAntesPrimerHijo);
+        $seccion.insertAdjacentElement("beforeend",$parrafoNuevoDespuesUltimoHijo);
+        
+        console.log(document.getElementById("parrafos"));
+    </script>
+
+</body>
+</html>

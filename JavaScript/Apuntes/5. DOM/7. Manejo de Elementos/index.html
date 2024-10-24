@@ -12,11 +12,13 @@
     
     <script>
         let $parrafo1=document.getElementById("parrafo1");
-        let texto=`<p id="parrafo3">Párrafo tercero para aprender manejo de elementos</p>
+        let $parrafo2=document.getElementById("parrafo2");
+        let texto=`
+        <p id="parrafo3">Párrafo tercero para aprender manejo de elementos</p>
         <p id="parrafo4">Párrafo cuarto para aprender manejo de elementos</p>
         <ul>
-        <li>1º DAW</li>
-        <li>2º DAW</li>
+            <li>1º DAW</li>
+            <li>2º DAW</li>
         </ul>`;
 
         //mostrar elemento html y su contenido textual
@@ -24,14 +26,19 @@
 
         //cambiar contenido textual del elemento html
         let $textoElemento=$parrafo1.innerText;
-        $parrafo1.innerText=texto;
+
+        $parrafo1.innerText=$parrafo2.innerText;
         console.log($parrafo1);
+
         $parrafo1.innerText=$textoElemento;
         console.log($parrafo1);
+
         $parrafo1.textContent=texto;
         console.log($parrafo1);
+
         $parrafo1.innerText=$textoElemento;
         console.log($parrafo1);
+
         $parrafo1.innerHTML=texto;
         console.log($parrafo1);
         

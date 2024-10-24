@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--Existen dos maneras de insertar contenido dinámicamente en un HTML.
+    1. Creando nuevos nodos.
+    2. Modificando directamente el contenido de un nodo.-->
+
+    <section id="seccion" class="claseSeccion">
+        <div id="parrafos" class="clasediv">
+            <p id="parrafo1"> Párrafo primero para aprender DOM Traversing</p>
+            <p id="parrafo2"> Párrafo segundo para aprender DOM Traversing</p>
+            <p id="parrafo3"> Párrafo terdero para aprender DOM Traversing</p>
+        </div>
+    </section>
+        
+
+    <script>
+        // Utilizaremos 3 funciones para crear nuevos nodos.
+        //
+        // createElement()
+        // createTextNode()
+        // [nodo_Padre].appendChild([nodoHijo])
+
+        // Insertar nodos de dos formas distintas:
+        //
+        // 1. En forma de nodo real
+        var nodoParrafo = document.createElement("p");
+        var textoParrafo = document.createTextNode("Este es otro párrafo insertado");
+       
+        nodoParrafo.appendChild(textoParrafo);
+        
+        // Agregamos al div un nuevo párrafo.
+        document.getElementById("parrafos").appendChild(nodoParrafo);
+        console.log(document.getElementById("parrafos"));
+        
+        // 2. Insertar contenido modificando contenido de un nodo
+        var nodoParrafo1 = document.createElement("p");
+        nodoParrafo1.innerHTML = "Este es otro párrafo más insertado";
+
+        document.getElementById("parrafos").appendChild(nodoParrafo1);
+        console.log(document.getElementById("parrafos"));
+
+
+        // Para eliminar un nodo.
+        // La función removeChild() requiere como parámetro el nodo que se va a eliminar.
+        // Además, esta función debe ser invocada desde el elemento padre de ese nodo que
+        // se quiere eliminar. La forma más segura y rápida de acceder al nodo padre de un
+        // elemento es mediante la propiedad [nodoHijo].parentNode.
+
+        var parrafoAEliminar = document.getElementById("parrafo1");
+        parrafoAEliminar.parentNode.removeChild(parrafoAEliminar);
+        console.log(document.getElementById("seccion"));
+
+    </script>
+
+</body>
+</html>
