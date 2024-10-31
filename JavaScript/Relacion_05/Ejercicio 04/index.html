@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 04</title>
+</head>
+<style>
+    .hidden {display: none;}
+    .visible {display: block;}
+</style>
+<body>
+    <h1>Rellene sus datos</h1>
+    <p>Nombre: <input type="text" id="nombre"> Apellidos: <input type="text" id="apellidos"></p>
+    <input type="button" name="enviar" value="Enviar" onclick="showMsg()">
+    <input type="button" name="limpiar" value="Limpiar" onclick="cleanAll()">
+    <p id="msg" class="hidden"></p>
+
+    <script>
+        var nombre = document.getElementById('nombre');
+        var apellidos = document.getElementById('apellidos');
+        var msg = document.getElementById('msg');
+
+        function showMsg() {
+            let texto = `Hola, bienvenido ${nombre.value} ${apellidos.value}`;
+
+            if (msg.classList.contains('hidden')) {
+                msg.className = 'visible';
+                msg.innerText = texto;
+            } else {
+                msg.innerText = texto;
+            }
+        }
+
+        function cleanAll() {
+            nombre.value = "";
+            apellidos.value = "";
+
+            if (msg.classList.contains('visible')) {
+                msg.className = 'hidden';
+                msg.innerText = "";
+            }
+        }
+    </script>
+</body>
+</html>
