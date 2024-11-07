@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejadores de eventos semánticos</title>
+</head>
+<body>
+    <input type="button" id="Enviar" value="Enviar">
+
+    <script>
+        // Función externa
+        function mostrar(){alert('Hola Mundo')}    
+        /* Asignar la función externa al elemento.
+        Observar que se llama a la función sin paréntesis.
+        Si colocamos paréntesis, se convertirá en
+        una función autoejecutable.*/
+        document.getElementById("Enviar").onclick=mostrar;
+    </script>
+</body>
+</html>

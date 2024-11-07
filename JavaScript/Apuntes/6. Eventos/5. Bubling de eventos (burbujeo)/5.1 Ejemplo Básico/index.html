@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ejemplo burbujeo</title>
+    <link href="ejemploburbujeo.css" rel="stylesheet" type="text/css" />
+    <script src="ejemploburbujeo.js"></script>
+  </head>
+  <body onclick="mostrarBody();" ;>
+    <div class="fondo" onclick="mostrarFondo();">
+      <div id="cuadroexterno" class="cuadroexterno" onclick="mostrarExterno();">
+        <div id="cuadromedio" class="cuadromedio" onclick="mostrarMedio();">
+          <div
+            id="cuadrointerno"
+            class="cuadrointerno"
+            onclick="mostrarInterno()"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método addEventListener()</title>
+</head>
+<body>
+    <h1>Método addEventListener()</h1>
+    <input type="button" id="Enviar" value="Enviar">
+
+    <script>
+        // El método addEventListener nos permite establecer un listener
+        // sobre un elemento de la página, para capturar el evento
+        // producido al interactuar con dicho elemento.
+        //
+        // También, nos permite asignar varias funciones al mismo
+        // manejador de eventos.
+        //
+        // El método addEventListener recibe tres parámetros:
+        // 1. El evento que queremos capturar.
+        // 2. La función que se ejecutará cuando se produzca el evento.
+        // 3. Un booleano (u Objeto [capture/once]) que indica si el evento se ejecuta de padres a hijos
+        // (true) o de hijos a padres (false).
+        // Por defecto, este parámetro es false.
+        document.getElementById("Enviar").addEventListener("click",function(){
+            alert("Hola mundo1")});
+        document.getElementById("Enviar").addEventListener("click",function(e){
+            alert("Hola mundo2");
+            console.log(e); // e es event
+            console.log(event);
+        });        
+    </script>
+</body>
+</html>

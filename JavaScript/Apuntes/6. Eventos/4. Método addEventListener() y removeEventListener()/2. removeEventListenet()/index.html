@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Método removeEventListener()</title>
+  </head>
+  <body>
+    <h1>Método removeEventListener()</h1>
+
+    <script>
+        // El método removeEventListener nos permite quitar un listener
+        // que hayamos establecido previamente con el método addEventListener.
+        //
+        // El método removeEventListener recibe tres parámetros:
+        // 1. El evento que queremos quitar.
+        // 2. La función que se ejecutará cuando se produzca el evento.
+        // 3. Un booleano (u Objeto [capture/once]) que indica si el evento se ejecuta de padres a hijos
+        // (true) o de hijos a padres (false).
+        const quitandoClick = (e) => {
+        alert("quitando el evento Click");
+        console.log(e.type, e.target);
+        document
+          .getElementById("Enviar")
+          .removeEventListener("click", quitandoClick);
+      };
+      document
+        .getElementById("Enviar")
+        .addEventListener("click", quitandoClick);
+    </script>
+  </body>
+</html>
