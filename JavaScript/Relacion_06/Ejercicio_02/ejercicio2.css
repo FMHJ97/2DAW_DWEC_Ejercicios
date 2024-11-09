@@ -1,0 +1,15 @@
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+#parrafo1 {
+    font-size: 16px;
+}
+#parrafo2 {
+    font-size: 16px;
+}
+#parrafo3 {
+    font-size: 16px;
+}

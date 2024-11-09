@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    color: white;
+}
+#cuadroTexto {
+    width: 300px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid black;
+    background-color: yellow;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
