@@ -1,0 +1,59 @@
+.formulario-contacto {
+  --colorformulario-ok: #4caf50;
+  --colorformulario-error: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+/* todos los hijos directos de la clase formulario-contacto */
+.formulario-contacto > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+/* el hijo concreto textarea de la clase contact_form que inhabilita que se pueda redimensionar el textarea*/
+.formulario-contacto textarea {
+  resize: none;
+}
+
+/* selector para la leyenda del formulario y para la clase formulario-contacto-respuesta */
+.formulario-contacto legend,
+.formulario-contacto-respuesta {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* selector para los tipo input y textearea de la clase contac-form */
+.formulario-contacto input,
+.formulario-contacto textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+/* selector para aquellos hijos de tipo input que poseen el atributo type=submit de la clase formulario-contacto */
+.formulario-contacto input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Todos los elementos de la clase formulario-contacto que contienen el atributo placeholder */
+.formulario-contacto *::placeholder {
+  color: #000;
+}
+
+/* Todos aquellos elementos de la clase formulario-contacto que son requeridos (obligatorios) */
+.formulario-contacto [required]:valid {
+  border: thin solid var(--colorformulario-ok);
+}
+
+/* Todos aquellos elementos de la clase formulario-contacto que no son requeridos (obligatorios) 
+en el que el se utiliza la variable colorformulario-error definida con anterioridad (en formulario-contacto) */
+.formulario-contacto [required]:invalid {
+  border: thin solid var(--colorformulario-error);
+}
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios Básicos Formularios - Ejercicio 1</title>
+    <link rel="stylesheet" type="text/css" href="ejercicio1.css">
+</head>
+<body>
+    <h1>Ejercicio 1 - Formulario Básico</h1>
+    <form action="" method="POST">
+        <p>Nombre: 
+            <input type="text" name="nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+        </p>
+        <p>Sexo: 
+            <select name="sexo" required>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select>
+        </p>
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+    <script src="ejercicio1.js"></script>
+</body>
+</html>
