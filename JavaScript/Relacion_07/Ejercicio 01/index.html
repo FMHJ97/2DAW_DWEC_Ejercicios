@@ -8,12 +8,18 @@
 </head>
 <body>
     <h1>Ejercicio 1 - Formulario Básico</h1>
-    <form action="" method="POST">
+    <form id="formulario" class="formulario-datos" 
+    action="#" method="POST" novalidate>
         <p>Nombre: 
-            <input type="text" name="nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+            <input type="text" name="nombre"
+            placeholder="Escriba aquí su nombre"
+            title="No se permiten números ni caracteres especiales" 
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
         </p>
         <p>Sexo: 
-            <select name="sexo" required>
+            <select name="sexo"
+            title="Seleccione un sexo" required>
+                <option value="" selected>Seleccione un sexo</option>
                 <option value="Hombre">Hombre</option>
                 <option value="Mujer">Mujer</option>
             </select>

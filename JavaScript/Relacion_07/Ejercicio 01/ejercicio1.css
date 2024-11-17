@@ -1,0 +1,43 @@
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+span {
+    margin-left: 10px;
+}
+
+.formulario-datos {
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario-datos > * {
+    padding: 0.5rem;
+    margin: 1rem auto;
+    display: block;
+    font-size: 1.5rem;
+    width: 60%;
+}
+
+.formulario-datos input[type="text"], select {
+    font-size: 1rem;
+}
+
+.formulario-datos input[type="submit"] {
+    width: 60%;
+    margin-top: 2.5em;
+    font-weight: bold;
+    background-color: steelblue;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.formulario-error {
+    color: red;
+}
