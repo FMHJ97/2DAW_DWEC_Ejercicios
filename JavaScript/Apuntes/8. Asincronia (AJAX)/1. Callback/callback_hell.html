@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Callback Hell refers to the complex, nested structure of callbacks in JavaScript,
+        often resulting in code that is difficult to read, maintain, and debug.
+        It occurs when multiple asynchronous operations are chained together
+        using callbacks, creating a “hellish” labyrinth of nested functions.
+        */        
+
+        function cuadradoCallback(valor, functionCallback) {
+            setTimeout(() => {
+                functionCallback(valor, valor * valor);
+            }, Math.random() * 1000);
+        }
+        cuadradoCallback(0, (valor, resultado) => {
+            console.log("Inicio de callback");
+            console.log(`Callback: ${valor},${resultado}`);
+            cuadradoCallback(1, (valor, resultado) => {
+                console.log(`Callback: ${valor},${resultado}`);
+                cuadradoCallback(2, (valor, resultado) => {
+                    console.log(`Callback: ${valor},${resultado}`);
+                    cuadradoCallback(3, (valor, resultado) => {
+                        console.log(`Callback: ${valor},${resultado}`);
+                        cuadradoCallback(4, (valor, resultado) => {
+                            console.log(`Callback: ${valor},${resultado}`);
+                            cuadradoCallback(5, (valor, resultado) => {
+                                console.log(`Callback: ${valor},${resultado}`);
+                                console.log("Fin de callback");
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

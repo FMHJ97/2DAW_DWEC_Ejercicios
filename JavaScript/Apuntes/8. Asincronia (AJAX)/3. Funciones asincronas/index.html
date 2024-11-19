@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Son aquellas que esperan a que se cumpla algo para ejecutarse. Las
+        funciones asíncronas no vienen a reemplazar las promesas, sino que
+        pueden trabajar en colaboración con ellas.
+
+        Las funciones asíncronas se declaran con la palabra async delante el
+        nombre de la función.
+
+        Ej: async funcionAsincronaDeclarada(){ }.
+
+        También podemos usar una función asíncrona como una función
+        expresada.
+
+        Ej: const funcionAsincronaExpresada = async ( ) => { }
+
+        Para el manejo de errores dentro de las funciones asíncronas
+        podemos utilizar el try-catch.
+        */
+
+        // Primer ejemplo de función asíncrona
+
+        function sumarPromise(num1, num2) {
+            if (typeof num1 !== "number" || typeof num2 !== "number") {
+                //devolvemos mensaje de error
+                return Promise.reject("Error, alguno de los valores no son un número");
+            }
+            return new Promise((resolve, reject) => {
+                //vamos a devolver un objeto con los valores a sumar y el resultado
+                resolve({
+                    num1: num1,
+                    num2: num2,
+                    suma: num1 + num2
+                });
+            });
+        }
+
+        async function funcionAsincronaDeclarada() {
+            try {
+                console.log('Inicio función asíncrona');
+                let objeto = await sumarPromise(1, 2);
+                console.log(`Función asíncrona: ${objeto.num1},${objeto.num2}, ${objeto.suma}`);
+                objeto = await sumarPromise(3, 4);
+                console.log(`Función asíncrona: ${objeto.num1},${objeto.num2}, ${objeto.suma}`);
+                console.log('Fin función asíncrona');
+            } catch (err) {
+                console.error(`se ha producido el error ${err}`);
+            }
+        }
+        funcionAsincronaDeclarada();
+
+
+        // Segundo ejemplo de función asíncrona
+
+        function promesaCuadrado(valor) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => { resolve({ valor: valor, resultado: valor * valor }) }, 1000)
+            })
+        }
+        
+        async function funcionAsincrona() {
+            try {
+                console.log("inicio función asíncrona");
+                let obj = promesaCuadrado(0);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                obj = await promesaCuadrado(1);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                obj = await promesaCuadrado(2);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                obj = await promesaCuadrado(3);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                obj = await promesaCuadrado(4);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                obj = await promesaCuadrado(5);
+                console.log(`promesa_fasincrona:${obj.valor},${obj.resultado}`);
+                console.log("fin función asíncrona");
+            }
+            catch (error) { console.log(error); }
+        }
+        funcionAsincrona();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Las promesas trabajan con dos recursos principales: resolve (éxito) y
+        reject (error). Por tanto, las promesas podemos verlas como in ifthen-else,
+        donde si se cumple la petición se ejecutaría el resolve y si la petición falla,
+        se ejecutaría el reject.
+
+        Las promesas tienen dos métodos para ejecutar la sincronía:
+
+            - Método then (se ejecuta cuando se ha ejecutado el código de la
+        promesa con éxito y recibe lo que devuelva resolve). Podemos
+        tener tantos métodos then como queramos, de forma que cada
+        método then trabaja con la respuesta del then anterior.
+
+            - Método catch (error, si no se cumple la promesa).
+
+        Además, de esta forma podemos tratar todos los errores unificados
+        en el catch.
+        */
+
+        // Ejemplo anterior de sumar dos números con promesas.
+
+        function sumarPromise(num1, num2) {
+            //devolvemos un objeto con resolve (éxito con los valores a sumar y resultado) o reject (error, con el mensaje de error)
+            return new Promise((resolve, reject) => {
+                resolve({
+                    num1: num1,
+                    num2: num2,
+                    suma: num1 + num2,
+                });
+            });
+            // en caso de error (por ejemplo que no introduzcan un número)
+            if (typeof num1 !== "number" || typeof num2 !== "number") {
+                //devolvemos mensaje de error
+                return Promise.reject(
+                    "Error, alguno de los valores no son un número"
+                );
+            }
+        }
+        sumarPromise(1, 2)
+            .then((objeto) => {
+                console.log(objeto);
+                console.log("Inicio promesa");
+                console.log(`Promise: ${objeto.num1} + ${objeto.num2} = ${objeto.suma}`);
+                return sumarPromise(3, 4);
+            })
+            .then((objeto) => {
+                console.log(`Promise: ${objeto.num1} + ${objeto.num2} = ${objeto.suma}`);
+                return sumarPromise(5, 2);
+            })
+            .then((objeto) => {
+                console.log(`Promise: ${objeto.num1} + ${objeto.num2} = ${objeto.suma}`);
+                console.log("Fin promesa");
+            })
+            .catch((error) => console.error(error));
+
+
+        // Ejemplo anterior de cuadrado con promesas.
+
+        function promesaCuadrado(valor) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => { resolve({ valor, resultado: valor * valor }) },
+                Math.random() * 1000)
+            })
+        }
+        promesaCuadrado(0).then((obj => {
+            console.log("Inicio promesa");
+            console.log(`promesa:${obj.valor},${obj.resultado}`);
+            return promesaCuadrado(1);
+        })
+        ).then((obj => {
+            console.log(`promesa:${obj.valor},${obj.resultado}`);
+            return promesaCuadrado(2);
+        })
+        ).then((obj => {
+            console.log(`promesa:${obj.valor},${obj.resultado}`);
+            return promesaCuadrado(3);
+        })
+        ).then((obj => {
+            console.log(`promesa:${obj.valor},${obj.resultado}`);
+            return promesaCuadrado(4);
+        })
+        ).then((obj => {
+            console.log(`promesa:${obj.valor},${obj.resultado}`);
+            return promesaCuadrado(5);
+        })
+        ).then((obj => {
+            console.log("Fin promesa");
+        })
+        )
+            .catch(error => { console.log(error) });
+    </script>
+</body>
+
+</html>
