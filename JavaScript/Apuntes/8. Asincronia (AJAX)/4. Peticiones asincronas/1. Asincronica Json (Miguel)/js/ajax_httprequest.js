@@ -6,7 +6,7 @@ objeto XMLHttpRequest
 4) Enviamos la respuesta al navegador con el método send
 */
 
-//función autoejecutable
+//función anónima autoejecutable
 (() => {
   /* creación de variables:
     xhr para almacenar objeto XMLHttpRequest ajax para intercambio de datos 
@@ -21,7 +21,7 @@ objeto XMLHttpRequest
 
     /*2º paso necesario: Asignar eventos. En este caso, lo haremos cuando
     se produzca un cambio de estado (readystatechange es el mejor porque 
-    abarca muchos eventos), ejecutando el códiog necesario dentro de la función*/
+    abarca muchos eventos), ejecutando el código necesario dentro de la función*/
     xhr.addEventListener("readystatechange", (e) => {
     /*comprobamos si el código de estado de la petición es el 4, es decir, petición 
     completada (READY_STATE_COMPLETE = 4), porque si es distinto no debemos seguir ejecutando*/

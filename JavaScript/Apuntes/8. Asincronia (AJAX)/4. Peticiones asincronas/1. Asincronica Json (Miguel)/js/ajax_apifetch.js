@@ -18,6 +18,7 @@ forma automática con la salida del anterior then.*/
     /* fetch con el recurso al que vamos a hacer referencia (url o archivo json).
     Además, podemos utilizar un parámetro de opciones, que ahora no utilizaremos, 
     pero sí cuando vayamos a realizar CRUD
+    
     Importante: el método fetch trabaja con promesas  */
 
     //fetch("assets/ins_complejos.json")
@@ -32,7 +33,7 @@ forma automática con la salida del anterior then.*/
         es decir, rechazamos toda la respuesta de la promesa*/
         .then((respuesta) => {
             console.log(respuesta);
-            return respuesta.ok ? respuesta.json() : Promise.reject(respuesta);
+            return respuesta.ok ? Promise.resolve(respuesta.json()) : Promise.reject(respuesta);
             })
         //otro método then que manipula la respuesta en formato json obtenida en el then anterior
         .then((json) => {
