@@ -47,4 +47,8 @@ function cifrarCadena() {
     // Mostramos la cadena encriptada.
     let texto = document.createTextNode(`Cadena cifrada: ${cadena_cifrada}`);
     $contenedor.appendChild(texto);
+    let br = document.createElement("br");
+    $contenedor.appendChild(br);
+    let texto2 = document.createTextNode(`Valor de encriptación: ${valor_encript}`);
+    $contenedor.appendChild(texto2);
 }
