@@ -1,18 +1,26 @@
 window.addEventListener('load', () => {
 
-    // Deshabilitar el botón de enviar del formulario de DAW.
-    document.getElementById('formDAW').addEventListener('submit', function(e) {
+    document.getElementById('formDAW').addEventListener('submit', function (e) {
         e.preventDefault();
-        const btnSMR = document.getElementById('submitSMR');
-        btnSMR.disabled = true;
-        alert('Matriculación en el ciclo de grado superior DAW realizada con éxito.');
+
+        const $formDAW = document.getElementById('formDAW');
+        const $formSMR = document.getElementById('formSMR');
+        
+        alert('Formulario enviado correctamente');
+        $formSMR.style.display = 'none';
+        // Reiniciar el formulario de SMR.
+        $formDAW.reset();
     });
 
-    // Deshabilitar el botón de enviar del formulario de SMR.
-    document.getElementById('formSMR').addEventListener('submit', function(e) {
+    document.getElementById('formSMR').addEventListener('submit', function (e) {
         e.preventDefault();
-        const btnDAW = document.getElementById('submitDAW');
-        btnDAW.disabled = true;
-        alert('Matriculación en el ciclo de grado medio SMR realizada con éxito.');
+        const $formDAW = document.getElementById('formDAW');
+        const $formSMR = document.getElementById('formSMR');
+
+        alert('Formulario enviado correctamente');
+        // Ocultar el formulario de DAW.
+        $formDAW.style.display = 'none';
+        // Reiniciar el formulario de SMR.
+        $formSMR.reset();
     });
 });

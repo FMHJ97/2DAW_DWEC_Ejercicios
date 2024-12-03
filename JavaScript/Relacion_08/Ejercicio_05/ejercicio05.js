@@ -13,6 +13,9 @@ function cifrarCadena() {
     const valor_encript = Math.round(Math.random() * 10); // Valor aleatorio entre 0 y 10.
     let cadena_cifrada = "";
 
+    // Limpiamos el contenedor.
+    $contenedor.innerHTML = "";
+
     // Comprobamos que la cadena no esté vacía.
     if ($cadena.value === "") {
         alert("La cadena no puede estar vacía.");

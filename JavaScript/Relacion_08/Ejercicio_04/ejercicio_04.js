@@ -21,8 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // Mostramos el resultado.
             alert(`El factorial de ${num} es: ${factorial}`);
         } else {
+            if (num == 0) {
+                // Mostramos un mensaje de error.
+                alert("El factorial de 0 es 1.");
+                return;
+            }
             // Mostramos un mensaje de error.
-            alert("El número introducido no es un número entero positivo.");
+            alert("El número introducido no es un número válido.");
         }
     }
 
