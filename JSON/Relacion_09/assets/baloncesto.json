@@ -1,0 +1,74 @@
+{
+  "jugadores": [
+    {
+      "id": "1",
+      "nombre": "Michael Jordan",
+      "dorsal": 23,
+      "equipo": "Chicago Bulls",
+      "posicion": "Escolta"
+    },
+    {
+      "id": "2",
+      "nombre": "Scottie Pippen",
+      "dorsal": 33,
+      "equipo": "Chicago Bulls",
+      "posicion": "Alero"
+    },
+    {
+      "id": "3",
+      "nombre": "Dennis Rodman",
+      "dorsal": 91,
+      "equipo": "Chicago Bulls",
+      "posicion": "Ala-pivot"
+    },
+    {
+      "id": "4",
+      "nombre": "Magic johnson Kerr",
+      "dorsal": 32,
+      "equipo": "Los Angeles Lakers",
+      "posicion": "Base"
+    },
+    {
+      "nombre": "Kareem Abdul-Jabbar",
+      "dorsal": "33",
+      "equipo": "Los Angeles Lakers",
+      "posicion": "Pivot",
+      "id": "5"
+    },
+    {
+      "nombre": "Larry Bird",
+      "dorsal": "33",
+      "equipo": "Boston Celtics",
+      "posicion": "Alero",
+      "id": "6"
+    },
+    {
+      "nombre": "Shaquille O'Neal",
+      "dorsal": "34",
+      "equipo": "Orlando Magic",
+      "posicion": "Pivot",
+      "id": "7"
+    },
+    {
+      "id": "8",
+      "nombre": "Allen Iverson",
+      "dorsal": 3,
+      "equipo": "Philadelphia 76ers",
+      "posicion": "Base"
+    },
+    {
+      "id": "9",
+      "nombre": "Charles Barkley",
+      "dorsal": 34,
+      "equipo": "Phoenix Suns",
+      "posicion": "Ala-pivot"
+    },
+    {
+      "id": "10",
+      "nombre": "Kobe Bryant",
+      "dorsal": 24,
+      "equipo": "Los Angeles Lakers",
+      "posicion": "Escolta"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
 
-    document.getElementById('formDAW').addEventListener('submit', function (e) {
+    document.getElementById('formDAW').addEventListener('submit', (e) => {
         e.preventDefault();
 
         const $formDAW = document.getElementById('formDAW');
@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
         $formDAW.reset();
     });
 
-    document.getElementById('formSMR').addEventListener('submit', function (e) {
+    document.getElementById('formSMR').addEventListener('submit', (e) => {
         e.preventDefault();
         const $formDAW = document.getElementById('formDAW');
         const $formSMR = document.getElementById('formSMR');

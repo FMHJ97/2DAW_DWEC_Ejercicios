@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD AJAX - API REST</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 1em;
+            text-align: center;
+        }
+        th {
+            background-color: lightblue;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRUD AJAX - API REST</h1>
+    <section class="crud">
+        <div>
+            <h2 class="crud-titulo">Agregar Jugador</h2>
+            <form class="crud-form">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <br>
+                <input type="text" name="dorsal" placeholder="Dorsal" required>
+                <br>
+                <input type="text" name="equipo" placeholder="Equipo" required>
+                <br>
+                <input type="text" name="posicion" placeholder="Posición" required>
+                <br>                                
+                <input type="submit" value="Enviar">
+                <input type="hidden" name="id">
+            </form>
+        </div>
+        <div>
+            <h2>Baloncesto (Jugadores)</h2>
+            <table class="crud-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dorsal</th>
+                        <th>Equipo</th>
+                        <th>Posición</th>
+                        <th>Operación</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <template id="crud-template">
+        <tr>
+            <td class="nombre"></td>
+            <td class="dorsal"></td>
+            <td class="equipo"></td>
+            <td class="posicion"></td>
+            <td>
+                <button class="edit" id="editar">Editar</button>
+                <button class="delete" id="borrar">Eliminar</button>
+            </td>
+        </tr>
+    </template>
+    <script src="js/Crud_Ajax_Api_Rest.js">
+    </script>
+</body>
+
+</html>
