@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Examen</title>
+  <style>
+    #texto {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="boton1">Botón 1</button>
+  <button id="boton2">Botón 2</button>
+  <button id="boton3">Botón 3</button>
+  <button id="boton4">Botón 4</button>
+  <button id="boton5">Botón 5</button>
+
+  <input type="text" id="texto">
+
+  <script>
+    // Botón 1: Cambia el fondo a rojo
+    document.getElementById('boton1').addEventListener('click', () => {
+      document.body.style.backgroundColor = 'red';
+    });
+
+    // Botón 2: Muestra el cuadro de texto
+    document.getElementById('boton2').addEventListener('click', () => {
+      const texto = document.getElementById('texto');
+      texto.style.display = 'block';
+    });
+
+    // Botón 3: Escribe texto blanco sobre fondo verde en el cuadro de texto
+    document.getElementById('boton3').addEventListener('click', () => {
+      const texto = document.getElementById('texto');
+      texto.value = 'Estoy dentro del cuadro de texto';
+      texto.style.backgroundColor = 'green';
+      texto.style.color = 'white';
+    });
+
+    // Botón 4: Invierte el texto del cuadro de texto
+    document.getElementById('boton4').addEventListener('click', () => {
+      const texto = document.getElementById('texto');
+      texto.value = texto.value.split('').reverse().join('');
+    });
+
+    // Botón 5: Muestra debajo del cuadro de texto la cantidad de caracteres
+    document.getElementById('boton5').addEventListener('click', () => {
+      const texto = document.getElementById('texto').value;
+      const cantidadCaracteres = texto.length;
+      const mensaje = document.createElement('p');
+      mensaje.textContent = `Número de caracteres: ${cantidadCaracteres}`;
+      document.body.appendChild(mensaje);
+    });
+  </script>
+
+</body>
+
+</html>
