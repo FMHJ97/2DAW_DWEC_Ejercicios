@@ -6,6 +6,8 @@ import { InterpolacionComponent } from './comm_dom_comp/interpolacion/interpolac
 import { PropertyBindingComponent } from './comm_dom_comp/property-binding/property-binding.component';
 import { EventBindingComponent } from './comm_dom_comp/event-binding/event-binding.component';
 import { BindingBidireccionalComponent } from './comm_dom_comp/binding-bidireccional/binding-bidireccional.component';
+import { DirectivaNgIfComponent } from './directivas/directiva-ng-if/directiva-ng-if.component';
+import { DirectivaNgForComponent } from './directivas/directiva-ng-for/directiva-ng-for.component';
 @Component({
   selector: 'app-root',
   imports: [
@@ -16,6 +18,8 @@ import { BindingBidireccionalComponent } from './comm_dom_comp/binding-bidirecci
     PropertyBindingComponent,
     EventBindingComponent,
     BindingBidireccionalComponent,
+    DirectivaNgIfComponent,
+    DirectivaNgForComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

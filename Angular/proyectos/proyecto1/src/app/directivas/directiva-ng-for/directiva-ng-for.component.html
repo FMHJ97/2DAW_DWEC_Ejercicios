@@ -1,0 +1,13 @@
+<!--Ejemplo ngFor para mostrar todos los módulos del arrayModulos -->
+<table border="2">
+  <tr>
+    <th colspan="2">Módulos</th>
+  </tr>
+  <tr *ngFor="let mod of arrayModulos; let i = index">
+    <td>{{ i }}</td>
+    <td>{{ mod.modulo }}</td>
+  </tr>
+</table>
+
+<app-padre-a-hijo *ngFor="let mod of arrayModulos; let i = index" [modParaHijo]="mod" [indiceParaHijo]="i">
+</app-padre-a-hijo>
